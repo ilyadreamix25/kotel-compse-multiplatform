@@ -11,6 +11,8 @@ interface Strings {
     val navigation: String
     val colors: String
     val textFields: String
+    val menu: String
+    val close: String
     // endregion
 
     // region Settings

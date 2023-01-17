@@ -1,5 +1,7 @@
 package ua.ilyadreamix.common
 
-actual fun getPlatformName(): String {
-    return "Desktop"
+import ua.ilyadreamix.common.utility.Platform
+
+actual fun getPlatform(): Platform {
+    return Platform.DESKTOP
 }

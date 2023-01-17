@@ -1,5 +1,7 @@
 package ua.ilyadreamix.common
 
-actual fun getPlatformName(): String {
-    return "Android"
+import ua.ilyadreamix.common.utility.Platform
+
+actual fun getPlatform(): Platform {
+    return Platform.ANDROID
 }

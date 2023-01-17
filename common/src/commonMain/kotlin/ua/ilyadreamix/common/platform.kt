@@ -1,3 +1,5 @@
 package ua.ilyadreamix.common
 
-expect fun getPlatformName(): String
+import ua.ilyadreamix.common.utility.Platform
+
+expect fun getPlatform(): Platform

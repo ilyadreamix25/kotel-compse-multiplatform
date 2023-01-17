@@ -8,4 +8,6 @@ object ENStrings : Strings {
     override val colors = "Colors"
     override val textFields = "Text fields"
     override val useDarkTheme = "Use dark theme"
+    override val menu = "Menu"
+    override val close = "Close"
 }

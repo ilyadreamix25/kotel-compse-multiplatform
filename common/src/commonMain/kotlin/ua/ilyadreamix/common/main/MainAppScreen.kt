@@ -13,18 +13,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
+import ua.ilyadreamix.common.components.WithTooltip
 import ua.ilyadreamix.common.core.AppTheme
-import ua.ilyadreamix.common.getPlatformName
 import ua.ilyadreamix.common.strings.toStrings
+import ua.ilyadreamix.common.utility.IfDesktop
 import kotlin.system.exitProcess
 
 private val mainNavigationDrawerItems = MainNavigationDrawerItem.asList()
+val strings = Locale.current.toStrings()
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainAppScreen() {
     var themeSwitcherState by remember { mutableStateOf(false) }
-    val strings by remember { mutableStateOf(Locale.current.toStrings()) }
 
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scope = rememberCoroutineScope()
@@ -132,18 +133,22 @@ private fun MainScaffold(
         topBar = {
             SmallTopAppBar(
                 actions = {
-                    IconButton(onClick = onDrawerButtonClick) {
-                        Icon(
-                            imageVector = Icons.Filled.Menu,
-                            contentDescription = null
-                        )
-                    }
-                    if (getPlatformName() == "Desktop") {
-                        IconButton(onClick = { exitProcess(0) }) {
+                    WithTooltip(strings.menu) {
+                        IconButton(onClick = onDrawerButtonClick) {
                             Icon(
-                                imageVector = Icons.Filled.Close,
+                                imageVector = Icons.Filled.Menu,
                                 contentDescription = null
                             )
+                        }
+                    }
+                    IfDesktop {
+                        WithTooltip(strings.close) {
+                            IconButton(onClick = { exitProcess(0) }) {
+                                Icon(
+                                    imageVector = Icons.Filled.Close,
+                                    contentDescription = null
+                                )
+                            }
                         }
                     }
                 },
@@ -157,6 +162,8 @@ private fun MainScaffold(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-        ) {}
+        ) {
+            MainNavHost(currentDrawerItem)
+        }
     }
 }

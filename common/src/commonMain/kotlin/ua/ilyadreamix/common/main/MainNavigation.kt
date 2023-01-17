@@ -1,13 +1,33 @@
 package ua.ilyadreamix.common.main
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AdsClick
 import androidx.compose.material.icons.filled.ForkLeft
 import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.TextFields
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.intl.Locale
+import androidx.compose.ui.unit.dp
+import ua.ilyadreamix.common.colors.ColorsScreen
 import ua.ilyadreamix.common.strings.toStrings
+
+@OptIn(ExperimentalAnimationApi::class)
+@Composable
+fun MainNavHost(selectedNavItem: MainNavigationDrawerItem) {
+    AnimatedContent(
+        selectedNavItem,
+        modifier = Modifier.padding(16.dp)
+    ) { screen ->
+        when (screen) {
+            else -> ColorsScreen()
+        }
+    }
+}
 
 sealed class MainNavigationDrawerItem(
     val label: String,
@@ -34,10 +54,10 @@ sealed class MainNavigationDrawerItem(
         protected val strings = Locale.current.toStrings()
 
         fun asList() = listOf(
-            MainNavigationDrawerItem.Colors,
-            MainNavigationDrawerItem.Buttons,
-            MainNavigationDrawerItem.Navigation,
-            MainNavigationDrawerItem.TextFields
+            Colors,
+            Buttons,
+            Navigation,
+            TextFields
         )
     }
 }
