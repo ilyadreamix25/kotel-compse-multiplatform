@@ -22,6 +22,7 @@ compose.desktop {
         mainClass = "MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            jvmArgs("-Dapple.awt.application.appearance=system")
 
             packageName = "MaterialCatalog"
             packageVersion = "1.0.0"

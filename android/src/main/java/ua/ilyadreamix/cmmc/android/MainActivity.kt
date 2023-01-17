@@ -1,6 +1,6 @@
-package ua.ilyadreamix.android
+package ua.ilyadreamix.cmmc.android
 
-import ua.ilyadreamix.common.App
+import ua.ilyadreamix.common.main.MainAppScreen
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme {
-                App()
+                MainAppScreen()
             }
         }
     }

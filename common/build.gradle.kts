@@ -1,4 +1,5 @@
 @file:Suppress("UnstableApiUsage")
+@file:OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
 
 plugins {
     kotlin("multiplatform")
@@ -15,7 +16,7 @@ kotlin {
             dependencies {
                 api(compose.runtime)
                 api(compose.foundation)
-                api(compose.material)
+                api(compose.material3)
                 api(compose.materialIconsExtended)
             }
         }

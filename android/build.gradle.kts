@@ -8,7 +8,7 @@ android {
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "ua.ilyadreamix.android"
+        applicationId = "ua.ilyadreamix.cmmc.android"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
